@@ -28,4 +28,5 @@ public class CurrentAuth {
     public boolean isAdmin() {
         return RoleConstants.ROLE_ADMIN.equals(getUser().getType());
     }
+
 }

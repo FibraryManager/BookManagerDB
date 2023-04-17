@@ -5,18 +5,24 @@ values ('123456','ly','17878282','1');
 insert into user (password, nickname, phone_number, type)
 values ('pai','pai','18778569923','2');
 
-insert into book ( id,book_id, book_name, status,classification_id, book_author, publisher, pb_time)
-values (1,'978-7-5192-4411-8','考研词汇闪过',0,1,'陈康宁','世界图书出版公司','2018-03-01');
-insert into book ( id,book_id, book_name,status, classification_id, book_author, publisher, pb_time)
+insert into book ( id,isbn, book_name, status,classification_id, book_author, publisher, pb_time)
+values (1,'978-7-5192-4411-8','考研词汇闪过',1,1,'陈康宁','世界图书出版公司','2018-03-01');
+insert into book ( id,isbn, book_name,status, classification_id, book_author, publisher, pb_time)
 values (2,'978-7-5192-4411-8','考研词汇闪过',0,1,'陈康宁','世界图书出版公司','2018-03-01');
-insert into book ( id,book_id, book_name,status, classification_id, book_author, publisher, pb_time)
+insert into book ( id,isbn, book_name,status, classification_id, book_author, publisher, pb_time)
 values (3,'978-7-5192-4411-8','考研词汇闪过',0,1,'陈康宁','世界图书出版公司','2018-03-01');
-insert into book (id, book_id, book_name,status, classification_id, book_author, publisher, pb_time)
-values (4,'978-7-5192-4411-8','考研词汇闪过',1,1,'陈康宁','世界图书出版公司','2018-03-01');
+insert into book (id, isbn, book_name,status, classification_id, book_author, publisher, pb_time)
+values (4,'978-7-5192-4411-8','考研词汇闪过',0,1,'陈康宁','世界图书出版公司','2018-03-01');
+insert into book (id, isbn, book_name,status, classification_id, book_author, publisher, pb_time)
+values (5,'222-2222-2222-2','测试',0,4,'派大星','测试测试','2018-03-01');
+insert into book (id, isbn, book_name,status, classification_id, book_author, publisher, pb_time)
+values (6,'222-2222-2222-1','测试2',0,4,'派大星','测试测试','2018-03-01');
 
 insert into borrow (book_id, book_name, return_time, user_id, classification_id)
 values (1,'考研词汇闪过','2023-05-08',1 ,1);
-
+insert into borrow (book_id, book_name, return_time, user_id, classification_id)
+values (2,'考研词汇闪过','2023-05-08',1 ,1);
+>>>>>>> 4865cab774c08f8ed33f409bfc17492485be060f
 
 insert into classify (id, classificaton)
 values (1,'科学与技术');

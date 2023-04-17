@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS `book`;
 create table book
 (
     id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '图书号',
-    book_id               VARCHAR(256) NOT NULL COMMENT '图书编号',
+    isbn               VARCHAR(256) NOT NULL COMMENT '图书编号',
     book_name         VARCHAR(256) NOT NULL COMMENT '书籍名称',
     status            Int NOT NULL COMMENT '出借状态',
     classification_id INT          NOT NULL COMMENT '分类id',
@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `classify`;
 
 create table classify
 (
-    id            INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '借阅编号',
+    id            INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '分类编号',
     classificaton VARCHAR(50) null comment '分类名称'
 );
 
