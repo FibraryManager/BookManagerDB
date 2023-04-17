@@ -1,1 +1,0 @@
-insert into user VALUES(1,'admin','admin','11111111111','3');

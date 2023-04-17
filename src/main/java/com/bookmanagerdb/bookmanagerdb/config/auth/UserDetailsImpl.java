@@ -22,6 +22,9 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> roleList = new LinkedList<>();
+        if (RoleConstants.BOOK_ADMIN.equals(user.getType())){
+            roleList.add(new SimpleGrantedAuthority(RoleConstants.BOOK_ADMIN));
+        }
         if (RoleConstants.ROLE_ADMIN.equals(user.getType())){
             roleList.add(new SimpleGrantedAuthority(RoleConstants.ROLE_ADMIN));
         }

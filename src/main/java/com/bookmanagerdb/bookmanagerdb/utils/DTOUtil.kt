@@ -1,4 +1,4 @@
-package com.murmur.murmur.utils
+package com.bookmanagerdb.bookmanagerdb.utils;
 
 import com.bookmanagerdb.bookmanagerdb.entity.dto.PagesDTO
 import org.springframework.data.domain.Page

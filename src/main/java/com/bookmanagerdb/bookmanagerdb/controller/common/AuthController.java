@@ -7,6 +7,7 @@ import com.bookmanagerdb.bookmanagerdb.entity.User;
 import com.bookmanagerdb.bookmanagerdb.entity.dto.UserDTO;
 import com.bookmanagerdb.bookmanagerdb.entity.dto.UserUpdateDTO;
 import com.bookmanagerdb.bookmanagerdb.services.AuthService;
+import com.bookmanagerdb.bookmanagerdb.utils.RandomNameUtil;
 import lombok.Data;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,19 @@ public class AuthController {
         return token;
     }
 
+    @PostMapping("/admin/signin")
+    public String admin_signin(@RequestBody @NonNull UserDTO userDTO) {
+        User user = userRepository.findByPhoneNumber(userDTO.getPhoneNumber());
+        if (user == null) throw new IllegalArgumentException("手机号不存在");
+        if (!new BCryptPasswordEncoder().matches(userDTO.getPassword(), user.getPassword()))
+            throw new IllegalArgumentException("密码错误");
+        if(user.getType().equals(RoleConstants.ROLE_ADMIN)){
+            var token = authService.generateTokenForUser(user);
+            return token;
+        }
+        throw new IllegalArgumentException("用户不为user_admin");
+    }
+
     @Data
     public static class WechatLoginDTO {
         private String code;
@@ -54,6 +68,10 @@ public class AuthController {
     public String signup(@RequestBody @NonNull UserDTO userDTO) {
         if (userRepository.findByPhoneNumber(userDTO.getPhoneNumber()) != null)
             throw new IllegalArgumentException("手机号已被注册");
+        if(userDTO.getNickname().equals("")){
+            String nickname = RandomNameUtil.getRandomChineseCharacters(8);
+            userDTO.setNickname(nickname);
+        }
         authService.saveUser(userDTO, RoleConstants.ROLE_USER);
         return "注册成功";
     }
