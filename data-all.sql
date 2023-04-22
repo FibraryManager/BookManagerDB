@@ -22,6 +22,7 @@ insert into borrow (book_id, book_name, return_time, user_id, classification_id)
 values (1,'考研词汇闪过','2023-05-08',1 ,1);
 insert into borrow (book_id, book_name, return_time, user_id, classification_id)
 values (2,'考研词汇闪过','2023-05-08',1 ,1);
+>>>>>>> 4865cab774c08f8ed33f409bfc17492485be060f
 
 insert into classify (id, classificaton)
 values (1,'科学与技术');

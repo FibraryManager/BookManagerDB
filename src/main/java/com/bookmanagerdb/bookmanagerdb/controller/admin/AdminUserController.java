@@ -13,7 +13,7 @@ import java.util.List;
  * 管理员用户管理
  */
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/admin")
 public class AdminUserController {
     @Autowired
     UserRepository userRepository;
@@ -38,7 +38,6 @@ public class AdminUserController {
         //允许管理员更新的内容
         res.setNickname(user.getNickname());
         res.setType(user.getType());
-        res.setPhoneNumber(user.getPhoneNumber());
         userRepository.save(res);
         return "更新成功";
     }

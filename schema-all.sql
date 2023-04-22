@@ -46,7 +46,7 @@ create table borrow
     borrow_time       DATETIME     NOT NULL DEFAULT NOW() COMMENT '借出时间',
     return_time       DATETIME     NOT NULL COMMENT '归还时间',
     user_id           INT UNSIGNED NOT NULL COMMENT '用户id',
-    classification_id INT          NOT NULL COMMENT '分类id',
+    classification_id INT UNSIGNED NOT NULL COMMENT '分类id',
     FOREIGN KEY (book_id) REFERENCES book (id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES user (user_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
