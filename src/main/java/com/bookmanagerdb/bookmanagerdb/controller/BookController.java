@@ -81,5 +81,14 @@ public class BookController {
             }
         }else throw new Exception("没有权限");
     }
+    /**
+     * 图书详细信息
+     */
+    @ResponseBody
+    @GetMapping("/requestBook")
+    public Book requestBook(@RequestParam("id") @NonNull String id){
+        Book book =  bookRepository.findById(id).get();
+        return book;
+    }
 
 }
