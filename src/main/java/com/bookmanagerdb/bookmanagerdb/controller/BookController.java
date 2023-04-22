@@ -52,6 +52,19 @@ public class BookController {
 
     }
     /**
+     * 修改图书
+     */
+//    @PutMapping("/updateBook")
+    @PostMapping("/updateBook")
+    @ResponseBody
+    public Book updateById(@RequestBody Book book, CurrentAuth currentAuth) throws Exception {
+        User user = currentAuth.getUser();
+        if (RoleConstants.BOOK_ADMIN.equals(user.getType())){
+            bookRepository.save(book);
+           return book;
+        }else throw new Exception("当前用户不是管理员！");
+    }
+    /**
      * 下架图书，如果书籍已被借出，则不能下架
      */
     @DeleteMapping("/deleteBook")
