@@ -17,4 +17,5 @@ public interface BookRepository extends JpaRepository<Book, String>, JpaSpecific
 //    @Modifying
 //    @Query("update Book s set s.status =:status where s.id=:id")
 //    void updateBook(String name, String id);// 注意:定义更新方法 返回值只能是void或者int,不然会报错
+
 }
