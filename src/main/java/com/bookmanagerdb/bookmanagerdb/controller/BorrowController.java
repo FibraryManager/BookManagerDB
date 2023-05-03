@@ -7,6 +7,7 @@ import com.bookmanagerdb.bookmanagerdb.dao.BorrowRepository;
 import com.bookmanagerdb.bookmanagerdb.entity.Book;
 import com.bookmanagerdb.bookmanagerdb.entity.Borrow;
 import com.bookmanagerdb.bookmanagerdb.entity.User;
+import com.bookmanagerdb.bookmanagerdb.entity.dto.BorrowDTO;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -25,7 +26,7 @@ import java.util.Optional;
  * 借阅管理
  */
 @RestController
-@RequestMapping("/api/borrow")
+@RequestMapping("/borrow")
 public class BorrowController {
     @Autowired
     BorrowRepository borrowRepository;
@@ -51,6 +52,7 @@ public class BorrowController {
     @GetMapping("/reader/allBooks")
     public List<Borrow> selectMyAll(CurrentAuth currentAuth) throws Exception{
         User user = currentAuth.getUser();
+        System.out.printf("sss_"+user);
         List<Borrow> borrowList = borrowRepository.findBorrowByUserId(user.getUserId());
         return borrowList;
     }

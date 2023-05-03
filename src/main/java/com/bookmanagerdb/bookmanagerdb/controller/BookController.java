@@ -53,6 +53,19 @@ public class BookController {
 
     }
     /**
+     * 修改图书
+     */
+//    @PutMapping("/updateBook")
+    @PostMapping("/updateBook")
+    @ResponseBody
+    public Book updateById(@RequestBody Book book, CurrentAuth currentAuth) throws Exception {
+        User user = currentAuth.getUser();
+        if (RoleConstants.BOOK_ADMIN.equals(user.getType())){
+            bookRepository.save(book);
+           return book;
+        }else throw new Exception("当前用户不是管理员！");
+    }
+    /**
      * 下架图书，如果书籍已被借出，则不能下架
      */
     @DeleteMapping("/deleteBook")
@@ -68,6 +81,15 @@ public class BookController {
                 throw new Exception ("当前书籍处于被借阅状态");
             }
         }else throw new Exception("没有权限");
+    }
+    /**
+     * 图书详细信息
+     */
+    @ResponseBody
+    @GetMapping("/requestBook")
+    public Book requestBook(@RequestParam("id") @NonNull String id){
+        Book book =  bookRepository.findById(id).get();
+        return book;
     }
 
 }
