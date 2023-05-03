@@ -49,8 +49,8 @@ public class BookInfoController {
     /*
     图片上传接口
     * */
-    @PostMapping("/book/img")
-    public JsonResult<Boolean> report( MultipartFile file,HttpSession session){
+    @PostMapping("/img")
+    public JsonResult<Boolean> report( MultipartFile file,Integer id,HttpSession session){
         long startTime = System.currentTimeMillis();
         String fileName = startTime + file.getOriginalFilename();
 //        String src = "/file/";
@@ -63,11 +63,14 @@ public class BookInfoController {
             }
         }
         File file1 = new File(dir, fileName); //文件路径
+        String img = src +"\\"+ fileName;
         try {
             file.transferTo(file1);
+            bookService.updateImgUrl(img,id);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         long endTime = System.currentTimeMillis();
         return new JsonResult<>(200,true);
     }

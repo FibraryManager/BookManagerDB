@@ -32,5 +32,5 @@ public class BookDTO {
     private Date pbTime;
 
     private Date time;
-
+    private String imageUrl;
 }

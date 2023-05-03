@@ -45,7 +45,8 @@ public class BookController {
                     bookDTO.getBookAuthor(),
                     bookDTO.getPublisher(),
                     bookDTO.getPbTime(),
-                    bookDTO.getTime()
+                    bookDTO.getTime(),
+                    bookDTO.getImageUrl()
             );
             return bookRepository.save(book);
         }else throw new Exception("没有权限");
