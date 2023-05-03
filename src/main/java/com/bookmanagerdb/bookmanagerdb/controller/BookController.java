@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/books")
 public class BookController {
     @Autowired
     BookRepository bookRepository;
@@ -45,7 +45,8 @@ public class BookController {
                     bookDTO.getBookAuthor(),
                     bookDTO.getPublisher(),
                     bookDTO.getPbTime(),
-                    bookDTO.getTime()
+                    bookDTO.getTime(),
+                    bookDTO.getImageUrl()
             );
             return bookRepository.save(book);
         }else throw new Exception("没有权限");

@@ -54,7 +54,7 @@ public class BookInfoController {
         long startTime = System.currentTimeMillis();
         String fileName = startTime + file.getOriginalFilename();
 //        String src = "/file/";
-        String src = "D:\\jj\\img";
+        String src = "https://raw.githubusercontent.com/yunduo23/picgoPic/";
         File dir = new File(src);
         if(!dir.exists()){
             boolean mkdir = dir.mkdir();//不存在即创建

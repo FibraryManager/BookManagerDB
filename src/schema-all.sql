@@ -25,7 +25,9 @@ create table book
     book_author       VARCHAR(256) NOT NULL COMMENT '作者姓名',
     publisher         VARCHAR(256) NOT NULL COMMENT '出版社',
     pb_time           DATETIME     NOT NULL COMMENT '出版时间',
-    time              DATETIME     NOT NULL DEFAULT NOW() COMMENT '入库时间'
+    time              DATETIME     NOT NULL DEFAULT NOW() COMMENT '入库时间',
+    image_url         VARCHAR(256) NOT NULL DEFAULT 'https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8zMzgxOTkwLTNlMmIwY2NjOWFlZTFkZmEucG5n?x-oss-process=image/format,png'COMMENT '图片地址'
+
 );
 
 DROP TABLE IF EXISTS `classify`;
@@ -44,8 +46,9 @@ create table borrow
     book_id           INT UNSIGNED NOT NULL COMMENT '图书号',
     book_name         VARCHAR(256) NOT NULL COMMENT '书籍名称',
     borrow_time       DATETIME     NOT NULL DEFAULT NOW() COMMENT '借出时间',
-    return_time       DATETIME     NOT NULL COMMENT '归还时间',
+    return_time       DATETIME     NOT NULL COMMENT '应还时间',
     user_id           INT UNSIGNED NOT NULL COMMENT '用户id',
+    nickname          VARCHAR(15) NOT NULL COMMENT '用户名',
     classification_id INT UNSIGNED NOT NULL COMMENT '分类id',
     FOREIGN KEY (book_id) REFERENCES book (id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES user (user_id) ON UPDATE CASCADE ON DELETE CASCADE

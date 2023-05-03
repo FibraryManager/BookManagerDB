@@ -40,8 +40,8 @@ public class AuthController {
         return token;
     }
 
-    @PostMapping("/admin/signin")
-    public String admin_signin(@RequestBody @NonNull UserDTO userDTO) {
+    @PostMapping("/UAdmin/signin")
+    public String UAdmin_signin(@RequestBody @NonNull UserDTO userDTO) {
         User user = userRepository.findByPhoneNumber(userDTO.getPhoneNumber());
         if (user == null) throw new IllegalArgumentException("手机号不存在");
         if (!new BCryptPasswordEncoder().matches(userDTO.getPassword(), user.getPassword()))
@@ -51,6 +51,19 @@ public class AuthController {
             return token;
         }
         throw new IllegalArgumentException("用户不为user_admin");
+    }
+
+    @PostMapping("/BAdmin/signin")
+    public String BAdmin_signin(@RequestBody @NonNull UserDTO userDTO) {
+        User user = userRepository.findByPhoneNumber(userDTO.getPhoneNumber());
+        if (user == null) throw new IllegalArgumentException("手机号不存在");
+        if (!new BCryptPasswordEncoder().matches(userDTO.getPassword(), user.getPassword()))
+            throw new IllegalArgumentException("密码错误");
+        if(user.getType().equals(RoleConstants.BOOK_ADMIN)){
+            var token = authService.generateTokenForUser(user);
+            return token;
+        }
+        throw new IllegalArgumentException("用户不为book_admin");
     }
 
     @Data

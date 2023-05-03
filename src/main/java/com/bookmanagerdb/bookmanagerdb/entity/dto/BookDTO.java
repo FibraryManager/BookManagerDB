@@ -33,4 +33,6 @@ public class BookDTO {
 
     private Date time;
 
+    private String imageUrl;
+
 }

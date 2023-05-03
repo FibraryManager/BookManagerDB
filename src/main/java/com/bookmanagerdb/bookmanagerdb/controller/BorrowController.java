@@ -26,7 +26,7 @@ import java.util.Optional;
  * 借阅管理
  */
 @RestController
-@RequestMapping("/api/borrow")
+@RequestMapping("/borrow")
 public class BorrowController {
     @Autowired
     BorrowRepository borrowRepository;
@@ -38,7 +38,7 @@ public class BorrowController {
      * 获取全部借阅记录
      */
     @ResponseBody
-    @GetMapping("/allborrows")
+    @GetMapping("/allBorrows")
     public List<Borrow> selectAllBorrows(CurrentAuth currentAuth)throws Exception{
        User user = currentAuth.getUser();
        if (RoleConstants.BOOK_ADMIN.equals(user.getType()))
