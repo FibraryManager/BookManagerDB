@@ -12,6 +12,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 //@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class CurrentAuth {
     private User user;
+    //存入用户使用的Cookie
 
     public User getUser() {
         if (user == null) {
