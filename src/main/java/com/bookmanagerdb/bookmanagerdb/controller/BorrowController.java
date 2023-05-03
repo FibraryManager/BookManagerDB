@@ -52,17 +52,10 @@ public class BorrowController {
     @GetMapping("/reader/allBooks")
     public List<Borrow> selectMyAll(CurrentAuth currentAuth) throws Exception{
         User user = currentAuth.getUser();
+        System.out.printf("sss_"+user);
         List<Borrow> borrowList = borrowRepository.findBorrowByUserId(user.getUserId());
         return borrowList;
     }
-//    @ResponseBody
-//    @GetMapping("/reader/allBooks")
-//    public List<BorrowDTO> selectMyAll(CurrentAuth currentAuth) throws Exception{
-//        User user = currentAuth.getUser();
-//        List<BorrowDTO> borrowList = borrowRepository.findMyBorrowByUserId(user.getUserId());
-////        List<BorrowDTO> borrowList = borrowRepository.findMyBorrows(user.getUserId());
-//        return borrowList;
-//    }
 
     /**
      * 读者借书

@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+<<<<<<< HEAD
+=======
+    <file url="file://$PROJECT_DIR$/data-all.sql" dialect="GenericSQL" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <file url="file://$PROJECT_DIR$/schema-all.sql" dialect="MySQL" />
+>>>>>>> 2a88a0a33220baf6fef3080ae3244c3c03e666d2
     <file url="file://$PROJECT_DIR$/src/main/java/com/bookmanagerdb/bookmanagerdb/dao/BookInfo.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/data-all.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/schema-all.sql" dialect="MySQL" />
     <file url="PROJECT" dialect="MySQL" />
+<<<<<<< HEAD
+=======
+=======
+    <file url="file://$PROJECT_DIR$/schema-all.sql" dialect="GenericSQL" />
+>>>>>>> bb7e437079670597df559cfb7ca14e9e15aaeef5
+=======
+    <file url="file://$PROJECT_DIR$/schema-all.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/schema-all.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/bookmanagerdb/bookmanagerdb/dao/BookInfo.java" dialect="GenericSQL" />
+    <file url="PROJECT" dialect="MySQL" />
+>>>>>>> 51b8d2042d58bcb004ddc50a7b1ba9979d143d10
+>>>>>>> 2a88a0a33220baf6fef3080ae3244c3c03e666d2
   </component>
 </project>

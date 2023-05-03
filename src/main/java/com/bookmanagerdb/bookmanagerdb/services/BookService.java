@@ -18,4 +18,9 @@ public class BookService {
         List<Book> bookList = bookInfo.queryByBookNameContainingOrClassificationIdContaining(bookName, classificationId);
         return bookList;
     }
+/*
+* 图片上传服务层*/
+    public void updateImgUrl(String imageUrl,Integer id){
+         bookInfo.updateImgUrl(imageUrl,id);
+    }
 }

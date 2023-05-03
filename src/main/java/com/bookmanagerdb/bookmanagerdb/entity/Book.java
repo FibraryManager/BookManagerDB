@@ -69,6 +69,7 @@ public class Book implements Serializable {
     @Column(name = "time")
     private Date time;
     /**
+<<<<<<< HEAD
      * 图书图片
      */
     @Column(name = "image_url")
@@ -146,6 +147,14 @@ public class Book implements Serializable {
     public void setTime(Date time) {
         this.time = time;
     }
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
 
     public String getImageUrl() {
         return imageUrl;
