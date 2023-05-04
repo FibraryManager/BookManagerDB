@@ -26,7 +26,8 @@ create table book
     publisher         VARCHAR(256) NOT NULL COMMENT '出版社',
     pb_time           DATETIME     NOT NULL COMMENT '出版时间',
     time              DATETIME     NOT NULL DEFAULT NOW() COMMENT '入库时间',
-    image_url          VARCHAR(256) NOT NULL COMMENT '图片地址'
+    image_url         VARCHAR(10240) NOT NULL DEFAULT 'https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8zMzgxOTkwLTNlMmIwY2NjOWFlZTFkZmEucG5n?x-oss-process=image/format,png'COMMENT '图片地址'
+
 );
 
 DROP TABLE IF EXISTS `classify`;
@@ -34,7 +35,7 @@ DROP TABLE IF EXISTS `classify`;
 create table classify
 (
     id            INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '分类编号',
-    classificaton VARCHAR(50) null comment '分类名称'
+    classification VARCHAR(50) NOT NULL comment '分类名称'
 );
 
 DROP TABLE IF EXISTS `borrow`;

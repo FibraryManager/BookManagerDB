@@ -24,7 +24,7 @@ public interface BookInfo extends JpaRepository<Book, String>, JpaSpecificationE
     /*
     * 图片上传绑定数据库*/
     @Modifying
-    @Query(value = "update book b set b.imageUrl =?1 where b.id = ?2",nativeQuery = true)
+    @Query(value = "update book b set b.image_url =?1 where b.id = ?2",nativeQuery = true)
     void updateImgUrl( String imageUrl, Integer id);
 //    List<Book> queryByBookNameContainingOrClassificationIdContaining(String bookName, Integer classificationId);
 

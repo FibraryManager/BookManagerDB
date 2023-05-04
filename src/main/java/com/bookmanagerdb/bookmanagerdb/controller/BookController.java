@@ -56,7 +56,7 @@ public class BookController {
      * 修改图书
      */
 //    @PutMapping("/updateBook")
-    @PostMapping("/updateBook")
+    @PutMapping("/updateBook")
     @ResponseBody
     public Book updateById(@RequestBody Book book, CurrentAuth currentAuth) throws Exception {
         User user = currentAuth.getUser();
