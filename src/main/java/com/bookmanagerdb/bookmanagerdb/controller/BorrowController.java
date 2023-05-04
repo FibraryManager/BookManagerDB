@@ -87,6 +87,7 @@ public class BorrowController {
             borrow.setReturnTime(date);
             User user = currentAuth.getUser();
             borrow.setUserId(user.getUserId());
+            borrow.setNickname(user.getNickname());
             borrow.setClassificationId(book.getClassificationId());
             borrowRepository.save(borrow);
             //借阅成功后修改书籍状态

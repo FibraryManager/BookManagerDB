@@ -53,6 +53,8 @@ public class Borrow implements Serializable {
      */
     @Column(name = "user_id")
     private Long userId;
+    @Column(name = "nickname")
+    private String nickname;
     /**
      * 分类id
      */

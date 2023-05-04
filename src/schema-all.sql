@@ -27,7 +27,6 @@ create table book
     pb_time           DATETIME     NOT NULL COMMENT '出版时间',
     time              DATETIME     NOT NULL DEFAULT NOW() COMMENT '入库时间',
     image_url         VARCHAR(10240) NOT NULL DEFAULT 'https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8zMzgxOTkwLTNlMmIwY2NjOWFlZTFkZmEucG5n?x-oss-process=image/format,png'COMMENT '图片地址'
-
 );
 
 DROP TABLE IF EXISTS `classify`;
