@@ -64,8 +64,10 @@ public class BorrowController {
     @GetMapping("/lendBook")
     public String lendBook(@RequestParam("id")@Nullable String id,CurrentAuth currentAuth) throws Exception{
         //id：book的id
+        System.out.println(id);
         Book book = bookRepository.findById(id).get();
         Integer status = book.getStatus();
+        System.out.println(status);
         if (status == 0){
             //可以借阅
             Borrow borrow = new Borrow();
@@ -86,12 +88,15 @@ public class BorrowController {
             Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
             borrow.setReturnTime(date);
             User user = currentAuth.getUser();
+            if (user==null)
+                return "请先登录！";
             borrow.setUserId(user.getUserId());
             borrow.setNickname(user.getNickname());
             borrow.setClassificationId(book.getClassificationId());
             borrowRepository.save(borrow);
             //借阅成功后修改书籍状态
             book.setStatus(1);//状态改为1
+
             bookRepository.save(book);
             return "借阅成功";
         }else if (status == 1){

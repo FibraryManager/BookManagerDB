@@ -43,7 +43,7 @@ public class BookInfoController {
  *
 * 查询接口*/
     @GetMapping("/list")
-    public List<Book> queryBookList(@RequestBody QueryBookDTO queryBookDTO){
+    public List<Book> queryBookList( QueryBookDTO queryBookDTO){
         return bookService.query(queryBookDTO.getBookName(), queryBookDTO.getClassificationId());
     }
 
@@ -57,7 +57,8 @@ public class BookInfoController {
         long startTime = System.currentTimeMillis();
         String fileName = startTime + file.getOriginalFilename();
 //        String src = "/file/";
-        String src = "https://raw.githubusercontent.com/yunduo23/picgoPic/";
+//        String src = "https://raw.githubusercontent.com/yunduo23/picgoPic/";
+        String src = "D:/image/";
         File dir = new File(src);
         if(!dir.exists()){
             boolean mkdir = dir.mkdir();//不存在即创建
@@ -66,7 +67,7 @@ public class BookInfoController {
             }
         }
         File file1 = new File(dir, fileName); //文件路径
-        String img = src +"\\"+ fileName;
+        String img = "/image/"+ fileName;
         try {
             file.transferTo(file1);
             bookService.updateImgUrl(img,id);
