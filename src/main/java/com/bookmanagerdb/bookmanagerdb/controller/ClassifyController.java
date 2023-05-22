@@ -37,7 +37,7 @@ public class ClassifyController {
         }else throw new Exception("没有权限");
     }
 
-    @PostMapping("/updateClassify")
+    @PutMapping("/updateClassify")
     @ResponseBody
     public Classify updateClassify(@RequestBody Classify classify, CurrentAuth currentAuth) throws Exception{
         User user = currentAuth.getUser();

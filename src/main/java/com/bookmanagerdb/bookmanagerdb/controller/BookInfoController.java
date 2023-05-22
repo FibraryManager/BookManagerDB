@@ -43,7 +43,7 @@ public class BookInfoController {
  *
 * 查询接口*/
     @GetMapping("/list")
-    public List<Book> queryBookList( QueryBookDTO queryBookDTO){
+    public List<Book> queryBookList(@RequestBody QueryBookDTO queryBookDTO){
         return bookService.query(queryBookDTO.getBookName(), queryBookDTO.getClassificationId());
     }
 
@@ -55,19 +55,22 @@ public class BookInfoController {
     @PostMapping("/img")
     public JsonResult<Boolean> report(@RequestBody MultipartFile file,@RequestParam("id") @NonNull Integer id){
         long startTime = System.currentTimeMillis();
-        String fileName = startTime + file.getOriginalFilename();
+        String fileName = file.getOriginalFilename();
 //        String src = "/file/";
-//        String src = "https://raw.githubusercontent.com/yunduo23/picgoPic/";
-        String src = "D:/image/";
+        String src = "/Users/xiaoyao/Downloads/教学实验/大三下/软件工程课设/LibraryManagement/admin/static/";
         File dir = new File(src);
+        System.out.println(dir);
         if(!dir.exists()){
+            System.out.println("fsfsdnsdjfnsjnfs");
             boolean mkdir = dir.mkdir();//不存在即创建
             if (!mkdir){
                 throw new RuntimeException("创建文件夹失败");
             }
         }
-        File file1 = new File(dir, fileName); //文件路径
-        String img = "/image/"+ fileName;
+        File file1 = new File(src, fileName); //文件路径
+        System.out.println(file1);
+        String img = src + fileName;
+        System.out.println(img);
         try {
             file.transferTo(file1);
             bookService.updateImgUrl(img,id);
